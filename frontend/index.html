@@ -3,9 +3,10 @@
 <head>
     <meta charset="UTF-8">
     <title>StudyTracker Web</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
+<div class="container">
     <h1>📚 StudyTracker</h1>
     <hr>
 
@@ -23,6 +24,28 @@
         <ul id="lista-disciplinas">
             <li>Carregando...</li>
         </ul>
+    </div>
+
+    </ul>
+    </div>
+
+    <hr>
+
+    <div id="painel-tarefas" style="display: none; background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
+        
+        <h3 id="titulo-disciplina-selecionada">Tarefas</h3>
+        
+        <ul id="lista-tarefas">
+            </ul>
+
+        <div style="margin-top: 10px;">
+            <h4>Adicionar Tarefa:</h4>
+            <input type="text" id="titulo-tarefa" placeholder="Título (ex: Ler cap 1)">
+            <input type="date" id="prazo-tarefa">
+            <button onclick="adicionarTarefa()">Adicionar</button>
+        </div>
+    </div>
+
     </div>
 
     <script src="app.js"></script>
