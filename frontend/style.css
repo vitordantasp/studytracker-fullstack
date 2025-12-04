@@ -1,4 +1,3 @@
-/* Reset básico para tirar margens estranhas dos navegadores */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -65,7 +64,6 @@ button:hover {
     background-color: #2980b9;
 }
 
-/* Botão de deletar (vermelho) */
 button.delete-btn {
     background-color: #e74c3c;
     padding: 5px 10px;
