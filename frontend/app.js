@@ -1,5 +1,5 @@
 // A URL da sua API Java (Back-end)
-const API_URL = "https://studytracker-api.onrender.com/";
+const API_URL = "https://studytracker-api.onrender.com/disciplinas";
 let disciplinaSelecionadaId = null; // Vai guardar o ID da disciplina que o usuário clicou
 
 // 1. Função para carregar dados (GET)
