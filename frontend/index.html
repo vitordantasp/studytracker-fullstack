@@ -1,54 +1,13 @@
-<!DOCTYPE html>
-<html lang="pt-BR">
-<head>
-    <meta charset="UTF-8">
-    <title>StudyTracker Web</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-<div class="container">
-    <h1>📚 StudyTracker</h1>
-    <hr>
-
-    <div>
-        <h3>Nova Disciplina</h3>
-        <input type="text" id="nome" placeholder="Nome da Matéria (ex: Java)">
-        <input type="text" id="professor" placeholder="Nome do Professor">
-        <button onclick="cadastrarDisciplina()">Salvar</button>
-    </div>
-
-    <hr>
-
-    <div>
-        <h3>Suas Disciplinas</h3>
-        <ul id="lista-disciplinas">
-            <li>Carregando...</li>
-        </ul>
-    </div>
-
-    </ul>
-    </div>
-
-    <hr>
-
-    <div id="painel-tarefas" style="display: none; background-color: #f0f0f0; padding: 15px; border-radius: 8px;">
-        
-        <h3 id="titulo-disciplina-selecionada">Tarefas</h3>
-        
-        <ul id="lista-tarefas">
-            </ul>
-
-        <div style="margin-top: 10px;">
-            <h4>Adicionar Tarefa:</h4>
-            <input type="text" id="titulo-tarefa" placeholder="Título (ex: Ler cap 1)">
-            <input type="date" id="prazo-tarefa">
-            <button onclick="adicionarTarefa()">Adicionar</button>
-        </div>
-    </div>
-
-    </div>
-
-    <script src="app.js"></script>
-
-</body>
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>frontend</title>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
 </html>

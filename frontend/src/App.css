@@ -1,0 +1,307 @@
+/* =========================================
+   1. RESET E VARIÁVEIS GERAIS
+   ========================================= */
+:root {
+  --primary-color: #646cff; /* Roxo principal */
+  --primary-hover: #535bf2;
+  --bg-color: #f0f2f5;      /* Fundo da página */
+  --card-bg: #ffffff;
+  --text-color: #213547;
+  --text-secondary: #666;
+  --border-radius: 12px;
+  
+  /* Sombras para dar profundidade */
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+  --shadow-md: 0 4px 6px rgba(0,0,0,0.1);
+  --shadow-lg: 0 10px 15px -3px rgba(0,0,0,0.1);
+
+  /* Cores de Status */
+  --status-pendente: #f1c40f;      /* Amarelo */
+  --status-progresso: #3498db;     /* Azul */
+  --status-concluida: #2ecc71;     /* Verde */
+  --danger-color: #e74c3c;         /* Vermelho (Deletar) */
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* =========================================
+   2. LAYOUT PRINCIPAL
+   ========================================= */
+.container {
+  max-width: 1200px; /* Aumentado para preencher melhor monitores desktop */
+  width: 100%;
+  margin: 0 auto;    /* Centraliza na tela */
+  padding: 2rem;
+}
+
+h1 {
+  font-size: 2.5rem;
+  text-align: center;
+  margin-bottom: 2rem;
+  color: var(--primary-color);
+}
+
+h2 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+hr {
+  border: 0;
+  height: 1px;
+  background: #ddd;
+  margin: 2rem 0;
+}
+
+/* =========================================
+   3. FORMULÁRIOS E INPUTS
+   ========================================= */
+.card {
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  padding: 1.5rem;
+  box-shadow: var(--shadow-sm);
+  transition: transform 0.2s, box-shadow 0.2s;
+  position: relative; /* Necessário para posicionamentos internos */
+}
+
+.add-card {
+  background: linear-gradient(to right bottom, #ffffff, #f8f9fa);
+  border: 1px solid #e1e4e8;
+  box-shadow: var(--shadow-md);
+  margin-bottom: 2rem;
+}
+
+form {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap; /* Permite quebrar linha em telas pequenas */
+  align-items: flex-end;
+}
+
+.form-group {
+  flex: 1; 
+  min-width: 200px;
+}
+
+input {
+  width: 100%;
+  padding: 0.8rem;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 1rem;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 2px rgba(100, 108, 255, 0.2);
+}
+
+button {
+  background-color: var(--primary-color);
+  color: white;
+  border: none;
+  padding: 0.8rem 1.5rem;
+  border-radius: 8px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+button:hover {
+  background-color: var(--primary-hover);
+}
+
+/* =========================================
+   4. CARD DE DISCIPLINA (LISTAGEM)
+   ========================================= */
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); /* Responsivo */
+  gap: 1.5rem;
+}
+
+/* Header do Card (Onde fica o Título e a Lixeira) */
+.card-header {
+  display: flex;
+  justify-content: space-between; /* Título na esquerda, Lixo na direita */
+  align-items: flex-start;
+  margin-bottom: 0.5rem;
+}
+
+.card h3 {
+  margin: 0;
+  color: #333;
+  font-size: 1.25rem;
+}
+
+/* Botão de Deletar Disciplina (Lixeira) */
+.btn-delete-icon {
+  background: transparent;
+  color: #ff6b6b; /* Vermelho suave */
+  padding: 4px 8px;
+  font-size: 1.2rem;
+  margin-left: 10px;
+}
+
+.btn-delete-icon:hover {
+  background-color: #fff0f0; /* Fundo rosinha ao passar o mouse */
+  color: var(--danger-color);
+  transform: scale(1.1);
+}
+
+.card p {
+  color: var(--text-secondary);
+  margin-bottom: 1rem;
+  font-size: 0.95rem;
+}
+
+/* Efeito Hover no Card Inteiro */
+.card-grid .card:hover {
+  transform: translateY(-5px);
+  box-shadow: var(--shadow-lg);
+  cursor: pointer;
+}
+
+.empty-msg {
+  text-align: center;
+  color: var(--text-secondary);
+  font-style: italic;
+  grid-column: 1 / -1;
+}
+
+/* =========================================
+   5. TELA DE TAREFAS
+   ========================================= */
+.btn-back {
+  background: none;
+  border: none;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  padding: 0;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+.btn-back:hover {
+  text-decoration: underline;
+  color: var(--primary-color);
+}
+
+.header-disciplina {
+  margin-bottom: 2rem;
+}
+
+/* ITEM DA LISTA DE TAREFAS */
+.tarefa-item {
+  background: white;
+  padding: 1rem;
+  margin-bottom: 0.8rem;
+  border-radius: 8px;
+  box-shadow: var(--shadow-sm);
+  display: flex;
+  align-items: center;
+  justify-content: space-between; /* Espalha: Nome | Status | Delete */
+  gap: 15px;
+  
+  /* Borda lateral colorida padrão */
+  border-left: 6px solid #ccc;
+  transition: transform 0.1s;
+}
+
+.tarefa-item:hover {
+  background: #fdfdfd;
+}
+
+.tarefa-titulo {
+  flex-grow: 1; /* Ocupa todo o espaço disponível no meio */
+  font-weight: 500;
+  font-size: 1.05rem;
+}
+
+/* CORES DAS BORDAS LATERAIS (STATUS) */
+.tarefa-item.status-pendente {
+  border-left-color: var(--status-pendente);
+}
+
+.tarefa-item.status-em_progresso {
+  border-left-color: var(--status-progresso);
+}
+
+.tarefa-item.status-concluida {
+  border-left-color: var(--status-concluida);
+  opacity: 0.8; /* Fica levemente apagado pra indicar concluído */
+}
+
+/* SELECT (Dropdown de Status) */
+.status-select {
+  padding: 6px 12px;
+  border-radius: 6px;
+  border: 1px solid #ddd;
+  background-color: #f8f9fa;
+  font-size: 0.9rem;
+  cursor: pointer;
+  color: #333;
+  outline: none;
+}
+
+.status-select:focus {
+  border-color: var(--primary-color);
+}
+
+/* Botão de Deletar Tarefa */
+.btn-delete-task {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: #ff6b6b;
+  padding: 0 5px;
+  transition: color 0.2s;
+}
+
+.btn-delete-task:hover {
+  background-color: transparent;
+  color: var(--danger-color); /* Vermelho mais forte */
+  transform: scale(1.1);
+}
+
+/* Ajuste para o input de data ficar com a mesma fonte */
+input[type="date"] {
+  font-family: inherit;
+  color: var(--text-color);
+  cursor: pointer;
+}
+
+/* Texto da data embaixo do título da tarefa */
+.tarefa-prazo {
+  display: block;
+  color: #888; /* Cinza suave */
+  font-size: 0.85rem;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* Quando a tarefa está concluída, a data também fica apagadinha */
+.tarefa-item.status-concluida .tarefa-prazo {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
